@@ -61,6 +61,10 @@ def perplexity_func(sentence):
     ppl = math.exp(-log_prob / N)
     return {"perplexity": ppl}
 
+@app.rouute("/")
+def home():
+    return jsonify({"message": "NLP Model API is running."})
+
 @app.route("/unigram", methods=["POST"])
 def unigram_route():
     sentence = request.json["sentence"]
